@@ -17,7 +17,6 @@ class HigherLowerActivity : AppCompatActivity() {
 
     private fun initViews() {
         updateUI()
-        //initViews()
         rollDice()
 
     }
@@ -28,7 +27,14 @@ class HigherLowerActivity : AppCompatActivity() {
     private fun updateUI() {
         tvLastThrow.text = getString(R.string.last_throw, lastThrow)
 
-        //,
+        when (currentThrow) {
+            1 -> imageView.setImageResource(R.drawable.dice1)
+            2 -> imageView.setImageResource(R.drawable.dice2)
+            3 -> imageView.setImageResource(R.drawable.dice3)
+            4 -> imageView.setImageResource(R.drawable.dice4)
+            5 -> imageView.setImageResource(R.drawable.dice5)
+            6 -> imageView.setImageResource(R.drawable.dice6)
+        }
     }
 
     /**
@@ -39,6 +45,19 @@ class HigherLowerActivity : AppCompatActivity() {
         lastThrow = currentThrow
         currentThrow = (1..6).random()
         updateUI()
+    }
+
+    private fun onHigherClick() {
+        rollDice()
+
+    }
+
+    /**
+     * Calls [rollDice] and checks if the answer is correct.
+     */
+    private fun onLowerClick() {
+        rollDice()
+        
     }
 
 
