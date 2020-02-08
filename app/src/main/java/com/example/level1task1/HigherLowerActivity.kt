@@ -12,11 +12,14 @@ class HigherLowerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_higher_lower)
+        initViews()
     }
 
     private fun initViews() {
         updateUI()
-        initViews()
+        //initViews()
+        rollDice()
+
     }
 
     /**
@@ -27,5 +30,16 @@ class HigherLowerActivity : AppCompatActivity() {
 
         //,
     }
+
+    /**
+     * Replaces the previous dice value with the current one and replaces the current dice with a new dice
+     * with a random number between 1 and 6 (inclusive).
+     */
+    private fun rollDice() {
+        lastThrow = currentThrow
+        currentThrow = (1..6).random()
+        updateUI()
+    }
+
 
 }

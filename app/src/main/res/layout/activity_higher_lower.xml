@@ -8,12 +8,12 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        android:text="Guess if the next throw is going to be lower, equal or higher."
+        android:text="@string/guess_if_the_next_throw_is_going_to_be_lower_equal_or_higher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,10 +25,15 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="128dp"
         android:layout_marginEnd="64dp"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/todo"
         android:src="@drawable/dice1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.247" />
 
     <Button
         android:id="@+id/button"
@@ -57,7 +62,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="24dp"
-        android:text="EQUILS"
+        android:text="@string/equals"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintStart_toEndOf="@+id/button" />
@@ -66,10 +71,10 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="150dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="128dp"
-        android:text="Last Throw:"
+        android:layout_marginEnd="180dp"
+        android:text="@string/last_throw"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -78,9 +83,8 @@
         android:id="@+id/tvLastThrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="@string/textview"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
