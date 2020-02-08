@@ -2,6 +2,7 @@ package com.example.level1task1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_higher_lower.*
 
 class HigherLowerActivity : AppCompatActivity() {
@@ -15,10 +16,14 @@ class HigherLowerActivity : AppCompatActivity() {
         initViews()
     }
 
+    /**
+     * Set the initial (UI) state of the game.
+     */
     private fun initViews() {
+        btnHigher.setOnClickListener { onHigherClick() }
+        btnLower.setOnClickListener { onLowerClick() }
+        btnEquals.setOnClickListener { onEqualsClick() }
         updateUI()
-        rollDice()
-
     }
 
     /**
@@ -44,20 +49,35 @@ class HigherLowerActivity : AppCompatActivity() {
     private fun rollDice() {
         lastThrow = currentThrow
         currentThrow = (1..6).random()
-        updateUI()
-    }
+        updateUI()}
 
     private fun onHigherClick() {
         rollDice()
 
+        if (currentThrow > lastThrow) onAnswerCorrect()
+        else onAnswerIncorrect()
     }
 
-    /**
-     * Calls [rollDice] and checks if the answer is correct.
-     */
     private fun onLowerClick() {
         rollDice()
-        
+
+        if (currentThrow < lastThrow) onAnswerCorrect()
+        else onAnswerIncorrect()
+    }
+
+    private fun onEqualsClick() {
+        rollDice()
+
+        if (currentThrow == lastThrow) onAnswerCorrect()
+        else onAnswerIncorrect()
+    }
+
+    private fun onAnswerCorrect() {
+        Toast.makeText(this, getString(R.string.correct), Toast.LENGTH_SHORT).show()
+    }
+
+    private fun onAnswerIncorrect() {
+        Toast.makeText(this, getString(R.string.incorrect), Toast.LENGTH_SHORT).show()
     }
 
 
